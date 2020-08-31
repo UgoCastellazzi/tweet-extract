@@ -1,0 +1,6 @@
+<%= simple_form_for (@alert) do |f| %>
+  <%= f.input :keyword %>
+  <%= f.input :region %>
+  <%= f.input :follower_threshold %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
