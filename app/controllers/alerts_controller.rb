@@ -1,11 +1,12 @@
 class AlertsController < ApplicationController
-
+  
   def index
-    @alerts = Alert.all
+    @alerts = policy_scope(Alert).order(created_at: :desc)
   end
 
   def new
     @alert = Alert.new
+    authorize @alert
   end
 
   def create
@@ -17,21 +18,25 @@ class AlertsController < ApplicationController
 
   def show
     @alert = Alert.find(params[:id])
+    authorize @alert
   end
 
   def edit
     @alert = Alert.find(params[:id])
+    authorize @alert
   end
 
   def update
     @alert = Alert.find(params[:id])
     @alert.update(alert_params)
+    authorize @alert
     redirect_to alert_path(@alert)
   end
 
   def destroy
     @alert = Alert.find(params[:id])
     @alert.destroy
+    authorize @alert
     redirect_to alerts_path
   end
 

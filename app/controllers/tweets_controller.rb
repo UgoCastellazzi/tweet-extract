@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
 
   def index
     @alert = Alert.find(params[:alert_id])
-    @tweets = @alert.tweets
+    @tweets = policy_scope(Tweet).order(created_at: :desc).where(alert_id: @alert.id)
   end
 
   def destroy
