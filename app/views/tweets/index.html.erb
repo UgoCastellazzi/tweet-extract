@@ -1,0 +1,7 @@
+<h1>Tweets for <%= @alert.keyword %></h1>
+
+<% @tweets.each do | tweet |%>
+  <li><%= tweet.content %> <%= link_to 'delete', tweet_path(tweet), method: :delete %></li>
+<% end %>
+
+<%= link_to 'list of KW', alerts_path %> 

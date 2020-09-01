@@ -2,6 +2,7 @@
 <% @alerts.each do | alert |%>
   <li><%= alert.keyword %>  <%= link_to 'see', alert_path(alert) %> 
   <%= link_to 'delete', alert_path(alert), method: :delete %>
-  <%= link_to 'edit', edit_alert_path(alert) %> </li>
+  <%= link_to 'edit', edit_alert_path(alert) %> 
+  <%= link_to 'see tweets', alert_tweets_path(alert) %></li>
 <% end %>
 <%= link_to 'new', new_alert_path(alert) %>
