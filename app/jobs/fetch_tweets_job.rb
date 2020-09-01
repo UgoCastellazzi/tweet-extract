@@ -11,29 +11,26 @@ class FetchTweetsJob < ApplicationJob
       config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
 
-    # Alert.all.each do |alert|
-      client.search("to:justinbieber", result_type: "recent").take(1).collect do |tweet|
-        puts "#{tweet.text}"
-        puts "#{tweet.user.name}"
-        puts "#{tweet.user.screen_name}"
-        puts "#{tweet.user.followers_count}"
-        puts "#{tweet.retweet_count}"
-        puts "#{tweet.favorite_count}"
-        puts "#{tweet.created_at}"
-        # if Tweet.exists?(link: "https://twitter.com/i/web/status/#{tweet.id}")
-        #   return
-        # else
-        #   if tweet.user.followers_count > 5000
-        #     Tweet.create!(
-        #       handdle: tweet.user.screen_name,
-        #       content: tweet.text,
-        #       date: tweet.created_at,
-        #       link: "https://twitter.com/i/web/status/#{tweet.id}",
-        #       keyword_id: keyword.id
-        #     )
-        #   end
-        # end
+    Alert.all.each do |alert|
+      puts "start for #{alert.keyword}"
+      client.search("#{alert.keyword}", result_type: "recent").take(3).collect do |tweet|
+        if Tweet.exists?(content: tweet.text)
+          next
+        else
+          if tweet.user.followers_count > alert.follower_threshold
+            Tweet.create!(
+              date: tweet.created_at,
+              twitter_account: tweet.user.name,
+              handdle: tweet.user.screen_name,
+              content: tweet.text,
+              retweets_count: tweet.retweet_count,
+              comments_count: 0,
+              likes_count: tweet.favorite_count,
+              alert_id: alert.id
+            )
+          end
+        end
       end
-    # end
+    end
   end
 end
