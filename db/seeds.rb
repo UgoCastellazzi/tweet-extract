@@ -5,3 +5,34 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+Alert.destroy_all
+Tweet.destroy_all
+
+10.times do
+  alert = Alert.new(
+    keyword:  Faker::App.name,
+    region: Faker::Address.state,
+    follower_threshold:  rand(0..1000),
+    user_id: User.first.id
+  )
+  alert.save!
+  5.times do 
+    tweet = Tweet.new(
+      date: Faker::Date.in_date_period,
+      twitter_account: Faker::FunnyName.name,
+      handdle: "@#{Faker::FunnyName.name}",
+      content: Faker::Quote.famous_last_words,
+      retweets_count: rand(0..1000),
+      comments_count: rand(0..1000),
+      likes_count: rand(0..1000),
+      alert_id: alert.id
+    )
+    tweet.save!
+  end
+end
+puts "finished"
+
+
+
