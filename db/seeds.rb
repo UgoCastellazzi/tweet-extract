@@ -32,7 +32,30 @@ Tweet.destroy_all
     tweet.save!
   end
 end
-puts "finished"
+puts "user 1 finished"
 
+7.times do
+  alert = Alert.new(
+    keyword:  Faker::App.name,
+    region: Faker::Address.state,
+    follower_threshold:  rand(0..1000),
+    user_id: User.last.id
+  )
+  alert.save!
+  3.times do 
+    tweet = Tweet.new(
+      date: Faker::Date.in_date_period,
+      twitter_account: Faker::FunnyName.name,
+      handdle: "@#{Faker::FunnyName.name}",
+      content: Faker::Quote.famous_last_words,
+      retweets_count: rand(0..1000),
+      comments_count: rand(0..1000),
+      likes_count: rand(0..1000),
+      alert_id: alert.id
+    )
+    tweet.save!
+  end
+end
+puts "user 2 finished"
 
 
