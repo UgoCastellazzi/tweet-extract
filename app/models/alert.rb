@@ -1,4 +1,4 @@
 class Alert < ApplicationRecord
   belongs_to :user
-  has_many :tweets, dependent: :destroy
+  has_many :leads, dependent: :destroy
 end

@@ -3,7 +3,7 @@
   <li><%= alert.keyword %>  <%= link_to 'see', alert_path(alert) %> 
   <%= link_to 'delete', alert_path(alert), method: :delete %>
   <%= link_to 'edit', edit_alert_path(alert) %> 
-  <%= link_to 'see tweets', alert_tweets_path(alert) %></li>
+  <%= link_to 'see tweets', alert_leads_path(alert) %></li>
 <% end %>
 
 <% if policy(Alert).create? %>
