@@ -4,4 +4,8 @@ class TweetPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def update_tweets?
+    true
+  end
 end

@@ -12,6 +12,7 @@ class AlertsController < ApplicationController
   def create
     @alert = Alert.new(alert_params)
     @alert.user = current_user
+    authorize @alert
     @alert.save
     redirect_to alerts_path
   end
