@@ -1,0 +1,9 @@
+<h1>Leads for <%= @alert.keyword %></h1>
+
+<% @leads.each do | lead |%>
+  <li><%= lead.handdle %> <%= link_to 'delete', lead_path(lead), method: :delete %></li>
+<% end %>
+
+<%= link_to 'list of KW', alerts_path %>
+<%= link_to 'Update tweets', update_tweets_alert_leads_path %> 
+

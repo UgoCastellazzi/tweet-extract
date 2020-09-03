@@ -8,7 +8,7 @@
 require 'faker'
 
 Alert.destroy_all
-Tweet.destroy_all
+Lead.destroy_all
 
 10.times do
   alert = Alert.new(
@@ -19,17 +19,18 @@ Tweet.destroy_all
   )
   alert.save!
   5.times do 
-    tweet = Tweet.new(
+    lead = Lead.new(
       date: Faker::Date.in_date_period,
-      twitter_account: Faker::FunnyName.name,
+      twitter_display_name: Faker::FunnyName.name,
       handdle: "@#{Faker::FunnyName.name}",
-      content: Faker::Quote.famous_last_words,
-      retweets_count: rand(0..1000),
-      comments_count: rand(0..1000),
-      likes_count: rand(0..1000),
+      tweet_content: Faker::Quote.famous_last_words,
+      description: Faker::Quote.famous_last_words,
+      followers: rand(0..1000),
+      following: rand(0..1000),
+      profile_pic_url: "https://static1.purepeople.com/articles/0/30/60/@/7705-adieu-carlos-624x600-1.jpg",
       alert_id: alert.id
     )
-    tweet.save!
+    lead.save!
   end
 end
 puts "user 1 finished"
@@ -43,17 +44,18 @@ puts "user 1 finished"
   )
   alert.save!
   3.times do 
-    tweet = Tweet.new(
+    lead = Lead.new(
       date: Faker::Date.in_date_period,
-      twitter_account: Faker::FunnyName.name,
+      twitter_display_name: Faker::FunnyName.name,
       handdle: "@#{Faker::FunnyName.name}",
-      content: Faker::Quote.famous_last_words,
-      retweets_count: rand(0..1000),
-      comments_count: rand(0..1000),
-      likes_count: rand(0..1000),
+      tweet_content: Faker::Quote.famous_last_words,
+      description: Faker::Quote.famous_last_words,
+      followers: rand(0..1000),
+      following: rand(0..1000),
+      profile_pic_url: "https://static1.purepeople.com/articles/0/30/60/@/7705-adieu-carlos-624x600-1.jpg",
       alert_id: alert.id
     )
-    tweet.save!
+    lead.save!
   end
 end
 puts "user 2 finished"

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TweetsControllerTest < ActionDispatch::IntegrationTest
+class LeadTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
