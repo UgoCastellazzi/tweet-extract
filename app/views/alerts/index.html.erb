@@ -1,11 +1,29 @@
-<h1>Here are your alerts</h1>
-<% @alerts.each do | alert |%>
-  <li><%= alert.keyword %>  <%= link_to 'see', alert_path(alert) %> 
-  <%= link_to 'delete', alert_path(alert), method: :delete %>
-  <%= link_to 'edit', edit_alert_path(alert) %> 
-  <%= link_to 'see tweets', alert_leads_path(alert) %></li>
-<% end %>
-
-<% if policy(Alert).create? %>
-  <%= link_to 'new', new_alert_path(alert) %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="alerts-container">
+        <h1><%= @user.email %>, here are your alerts</h1>
+          <div class="alert-card-container">
+            <% @alerts.each do | alert |%>
+             <div class="alert-card">
+               <div class="alert-card-details">
+                  <%= link_to alert_leads_path(alert) do %>
+                    <p class="card-title"><%= alert.keyword %></p>
+                    <p><%= alert.region %></p>
+                    <p><%= alert.follower_threshold %></p>
+                  <% end %>
+               </div>
+                <div class="alert-card-buttons">
+                  <%= link_to 'delete', alert_path(alert), method: :delete, class: "alert-card-delete-button" %>
+                  <%= link_to 'edit', edit_alert_path(alert), class: "alert-card-edit-button" %> 
+                </div>
+              </div>
+            <% end %>
+            <% if policy(Alert).create? %>
+              <%= link_to 'new', new_alert_path(alert) %>
+            <% end %>  
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

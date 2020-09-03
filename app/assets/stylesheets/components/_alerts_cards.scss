@@ -1,0 +1,53 @@
+.alerts-container {
+  text-align: center;
+  h1 {
+    padding-bottom: 20px;
+  }
+}
+
+.alert-card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  flex-grow: 1;
+  margin: 10px;
+  text-align: center;
+  p {
+    color: $deep-blue;
+  }
+}
+
+.alert-card {
+  border: 1px solid $clear-blue;
+  border-radius: 5px;
+  padding: 10px 10px 20px 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.alert-card-details {
+  text-align: center;
+}
+
+.card-title {
+  color: $deep-blue;
+  font-size: 36px;
+}
+
+.alert-card-delete-button {
+  background: $red;
+  padding: 5px 15px;
+  border-radius: 2px;
+  color: $light-gray;
+  font-size: 1rem;
+}
+
+.alert-card-edit-button {
+  background: $light-blue;
+  padding: 5px 15px;
+  border-radius: 2px;
+  color: $light-gray;
+  font-size: 1rem;
+}
