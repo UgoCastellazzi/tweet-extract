@@ -21,12 +21,13 @@ Lead.destroy_all
   5.times do 
     lead = Lead.new(
       date: Faker::Date.in_date_period,
-      twitter_account: Faker::FunnyName.name,
+      twitter_display_name: Faker::FunnyName.name,
       handdle: "@#{Faker::FunnyName.name}",
-      content: Faker::Quote.famous_last_words,
-      retweets_count: rand(0..1000),
-      comments_count: rand(0..1000),
-      likes_count: rand(0..1000),
+      tweet_content: Faker::Quote.famous_last_words,
+      description: Faker::Quote.famous_last_words,
+      followers: rand(0..1000),
+      following: rand(0..1000),
+      profile_pic_url: "https://static1.purepeople.com/articles/0/30/60/@/7705-adieu-carlos-624x600-1.jpg",
       alert_id: alert.id
     )
     lead.save!
@@ -45,12 +46,13 @@ puts "user 1 finished"
   3.times do 
     lead = Lead.new(
       date: Faker::Date.in_date_period,
-      twitter_account: Faker::FunnyName.name,
+      twitter_display_name: Faker::FunnyName.name,
       handdle: "@#{Faker::FunnyName.name}",
-      content: Faker::Quote.famous_last_words,
-      retweets_count: rand(0..1000),
-      comments_count: rand(0..1000),
-      likes_count: rand(0..1000),
+      tweet_content: Faker::Quote.famous_last_words,
+      description: Faker::Quote.famous_last_words,
+      followers: rand(0..1000),
+      following: rand(0..1000),
+      profile_pic_url: "https://static1.purepeople.com/articles/0/30/60/@/7705-adieu-carlos-624x600-1.jpg",
       alert_id: alert.id
     )
     lead.save!

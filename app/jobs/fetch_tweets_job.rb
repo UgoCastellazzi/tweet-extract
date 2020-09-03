@@ -11,18 +11,15 @@ class FetchTweetsJob < ApplicationJob
       config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
     client.search("#{alert.keyword}", result_type: "recent").take(3).collect do |tweet|
-      if Lead.exists?(content: tweet.text)
+      if Lead.exists?(tweet_content: tweet.text)
         next
       else
         if tweet.user.followers_count > alert.follower_threshold
           Lead.create!(
             date: tweet.created_at,
-            twitter_account: tweet.user.name,
+            twitter_display_name: tweet.user.name,
             handdle: tweet.user.screen_name,
-            content: tweet.text,
-            retweets_count: tweet.retweet_count,
-            comments_count: 0,
-            likes_count: tweet.favorite_count,
+            tweet_content: tweet.text,
             alert_id: alert.id
           )
         end

@@ -27,12 +27,13 @@ ActiveRecord::Schema.define(version: 2020_09_03_114002) do
 
   create_table "leads", force: :cascade do |t|
     t.date "date"
-    t.string "twitter_account"
+    t.string "twitter_display_name"
     t.string "handdle"
-    t.text "content"
-    t.integer "retweets_count"
-    t.integer "comments_count"
-    t.integer "likes_count"
+    t.text "tweet_content"
+    t.text "description"
+    t.integer "followers"
+    t.integer "following"
+    t.string "profile_pic_url"
     t.bigint "alert_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

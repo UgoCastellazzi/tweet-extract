@@ -2,12 +2,13 @@ class CreateLeads < ActiveRecord::Migration[6.0]
   def change
     create_table :leads do |t|
       t.date :date
-      t.string :twitter_account
+      t.string :twitter_display_name
       t.string :handdle
-      t.text :content
-      t.integer :retweets_count
-      t.integer :comments_count
-      t.integer :likes_count
+      t.text :tweet_content
+      t.text :description
+      t.integer :followers
+      t.integer :following
+      t.string :profile_pic_url
       t.references :alert, null: false, foreign_key: true
 
       t.timestamps
