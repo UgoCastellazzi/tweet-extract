@@ -8,7 +8,7 @@
 require 'faker'
 
 Alert.destroy_all
-Tweet.destroy_all
+Lead.destroy_all
 
 10.times do
   alert = Alert.new(
@@ -19,7 +19,7 @@ Tweet.destroy_all
   )
   alert.save!
   5.times do 
-    tweet = Tweet.new(
+    lead = Lead.new(
       date: Faker::Date.in_date_period,
       twitter_account: Faker::FunnyName.name,
       handdle: "@#{Faker::FunnyName.name}",
@@ -29,7 +29,7 @@ Tweet.destroy_all
       likes_count: rand(0..1000),
       alert_id: alert.id
     )
-    tweet.save!
+    lead.save!
   end
 end
 puts "user 1 finished"
@@ -43,7 +43,7 @@ puts "user 1 finished"
   )
   alert.save!
   3.times do 
-    tweet = Tweet.new(
+    lead = Lead.new(
       date: Faker::Date.in_date_period,
       twitter_account: Faker::FunnyName.name,
       handdle: "@#{Faker::FunnyName.name}",
@@ -53,7 +53,7 @@ puts "user 1 finished"
       likes_count: rand(0..1000),
       alert_id: alert.id
     )
-    tweet.save!
+    lead.save!
   end
 end
 puts "user 2 finished"

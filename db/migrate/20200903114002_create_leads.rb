@@ -1,6 +1,6 @@
-class CreateTweets < ActiveRecord::Migration[6.0]
+class CreateLeads < ActiveRecord::Migration[6.0]
   def change
-    create_table :tweets do |t|
+    create_table :leads do |t|
       t.date :date
       t.string :twitter_account
       t.string :handdle
