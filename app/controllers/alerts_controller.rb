@@ -1,6 +1,7 @@
 class AlertsController < ApplicationController
   
   def index
+    @user = current_user
     @alerts = policy_scope(Alert).order(created_at: :desc)
   end
 
