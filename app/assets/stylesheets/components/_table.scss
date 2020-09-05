@@ -1,0 +1,66 @@
+.alerts-container {
+  text-align: center;
+  h1 {
+    padding-bottom: 20px;
+  }
+}
+
+.table-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: $clear-blue;
+  }
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border: 1px solid $light-gray;
+  border-radius: 3px;
+}
+
+.table-row:hover {
+    border: 1px solid $clear-blue;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-details-container {
+  margin-left: 10px;
+  text-align: left;
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.lead-handdle {
+  color: $light-blue;
+}
+
+.follow-info {
+  color: $clear-blue;
+  font-size: 0.8rem;
+}
+
+.description-container, 
+.tweet-container,
+.date-container,
+.add-container {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  p {
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 0;
+  }
+}

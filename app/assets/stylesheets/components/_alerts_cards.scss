@@ -25,6 +25,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .alert-card-details {
@@ -50,4 +51,15 @@
   border-radius: 2px;
   color: $light-gray;
   font-size: 1rem;
+}
+
+.new-alert-icon {
+  font-size: 2rem;
+  color: $clear-blue;
+}
+
+.new-alert-card-title {
+  font-size: 2rem;
+  font-weight: 200;
+  color: $clear-blue;
 }

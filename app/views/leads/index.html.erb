@@ -1,9 +1,54 @@
-<h1>Leads for <%= @alert.keyword %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="alerts-container">
+        <h1>Leads for "<%= @alert.keyword %>"</h1>
 
-<% @leads.each do | lead |%>
-  <li><%= lead.handdle %> <%= link_to 'delete', lead_path(lead), method: :delete %></li>
-<% end %>
+        <div class="table-container">
+          <div class="table-title">
+            <h2 class="col-3">PROFILE</h2>
+            <h2 class="col-3">DESCRIPTION</h2>
+            <h2 class="col-4">TWEET</h2>
+            <h2 class="col-1">DATE</h2>
+            <h2 class="col-1">ADD</h2>
+          </div>
+            <div class="table">
+              <% @leads.each do | lead |%>
+                <div class="table-row">
+                  <div class="profile-container col-3">
+                    <a href="https://twitter.com/<%= lead.handdle %>" target="blank">
+                      <img class="avatar" alt="avatar" src="<%= lead.profile_pic_url %>" />
+                    </a>
+                    <div class="profile-details-container">
+                      <p class="lead-handdle"> @<%= lead.handdle %> </p>
+                      <p class="follow-info"> <%= lead.followers %> FOLLOWERS </p>
+                      <p class="follow-info"> <%= lead.followers %> FOLLOWING </p>
+                    </div>
+                  </div>
+                  <div class="description-container col-3">
+                    <p> <%= lead.description %> </p>
+                  </div>
+                  <div class="tweet-container col-4">
+                    <p> <%= lead.tweet_content %> </p>
+                  </div>
+                  <div class="date-container col-1">
+                    <p> <%= lead.date %> </p>
+                  </div>
+                  <div class="add-container col-1">
+                    <%= link_to 'Delete', lead_path(lead), method: :delete %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+        </div>       
 
-<%= link_to 'list of KW', alerts_path %>
-<%= link_to 'Update tweets', update_tweets_alert_leads_path %> 
+        <%= link_to 'list of KW', alerts_path %>
+        <%= link_to 'Update tweets', update_tweets_alert_leads_path %> 
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 

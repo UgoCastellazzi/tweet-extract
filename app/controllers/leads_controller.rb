@@ -9,7 +9,7 @@ class LeadsController < ApplicationController
   def destroy
     @lead = Lead.find(params[:id])
     @lead.destroy
-    redirect_to alert_tweets_path(@lead.alert)
+    redirect_to alert_leads_path(@lead.alert)
   end
 
   def update_tweets
