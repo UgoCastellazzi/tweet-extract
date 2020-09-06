@@ -45,7 +45,9 @@ class AlertsController < ApplicationController
   private
 
   def alert_params
-    params.require(:alert).permit(:keyword, :region, :follower_threshold)
+    params.require(:alert).permit(:keyword, :exact_keyword, :keywords_excluded, 
+    :hashtags, :mentionned_accounts, :answers_included, :answers_only,
+    :retweets_included, :retweets_only, :begin_date, :end_date, :language, :follower_threshold)
   end
 
 end

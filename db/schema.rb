@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 2020_09_06_162416) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "exact_keyword"
-    t.string "keywords_excluded", default: [], array: true
-    t.string "hashtags", default: [], array: true
+    t.string "keywords_excluded"
+    t.string "hashtags"
     t.string "language"
-    t.string "mentionned_accounts", default: [], array: true
+    t.string "mentionned_accounts"
     t.boolean "answers_included"
     t.boolean "answers_only"
     t.boolean "retweets_included"
