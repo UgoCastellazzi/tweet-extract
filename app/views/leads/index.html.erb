@@ -29,7 +29,9 @@
                     <p> <%= lead.description %> </p>
                   </div>
                   <div class="tweet-container col-4">
-                    <p> <%= lead.tweet_content %> </p>
+                    <a href="https://twitter.com/<%= lead.handdle %>/status/<%= lead.tweet_id%>" target="blank">
+                      <p> <%= lead.tweet_content %> </p>
+                    </a>
                   </div>
                   <div class="date-container col-1">
                     <p> <%= lead.date %> </p>

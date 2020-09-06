@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_114002) do
+ActiveRecord::Schema.define(version: 2020_09_06_162416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2020_09_03_114002) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "exact_keyword"
+    t.string "keywords_excluded"
+    t.string "hashtags"
+    t.string "language"
+    t.string "mentionned_accounts"
+    t.boolean "answers_included"
+    t.boolean "answers_only"
+    t.boolean "retweets_included"
+    t.boolean "retweets_only"
+    t.date "begin_date"
+    t.date "end_date"
     t.index ["user_id"], name: "index_alerts_on_user_id"
   end
 
@@ -37,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_114002) do
     t.bigint "alert_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "tweet_id"
     t.index ["alert_id"], name: "index_leads_on_alert_id"
   end
 

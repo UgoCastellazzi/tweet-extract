@@ -9,6 +9,7 @@ class LeadsController < ApplicationController
   def destroy
     @lead = Lead.find(params[:id])
     @lead.destroy
+    authorize @lead
     redirect_to alert_leads_path(@lead.alert)
   end
 
