@@ -8,4 +8,8 @@ class LeadPolicy < ApplicationPolicy
   def update_tweets?
     true
   end
+
+  def destroy?
+    true
+  end
 end
