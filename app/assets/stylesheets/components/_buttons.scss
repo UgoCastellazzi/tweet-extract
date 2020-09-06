@@ -9,3 +9,23 @@
 .back-button:hover {
   color: $clear-blue;
 }
+
+.primary-button {
+  background: $deep-blue;
+  padding: 5px 15px;
+  border-radius: 1px;
+  color: $light-gray;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.primary-button:hover {
+  color: $light-gray;
+  opacity: 0.95;
+  transition: 0.2s;
+}
+
+.devise-links {
+  color: $deep-blue;
+  margin-top: 20px;
+}
