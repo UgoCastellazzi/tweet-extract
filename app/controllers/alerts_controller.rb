@@ -32,7 +32,7 @@ class AlertsController < ApplicationController
     @alert = Alert.find(params[:id])
     @alert.update(alert_params)
     authorize @alert
-    redirect_to alert_path(@alert)
+    redirect_to alerts_path
   end
 
   def destroy

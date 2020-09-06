@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
+      <a href="/alerts" class="back-button">< Back to alerts</a>
       <div class="alerts-container">
         <h1>Leads for "<%= @alert.keyword %>"</h1>
 
@@ -44,7 +45,6 @@
             </div>
         </div>       
 
-        <%= link_to 'list of KW', alerts_path %>
         <%= link_to 'Update tweets', update_tweets_alert_leads_path %> 
       </div>
 
