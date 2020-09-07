@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a href="/alerts" class="nav-link-button-empty">My alerts</a>
+      </li>
+      <li class="nav-item">
+        <%= link_to "New alert", new_alert_path(alert), class:"nav-link-button-filled" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Log out", destroy_user_session_path, class:"nav-link", method: :delete %>
+      </li>
+    </ul>
+  </div>
+</div>
+<% end %>
+

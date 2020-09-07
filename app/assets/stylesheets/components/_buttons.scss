@@ -19,13 +19,42 @@
   width: 100%;
 }
 
+
+.nav-link-button-filled:hover,
 .primary-button:hover {
   color: $light-gray;
-  opacity: 0.95;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.nav-link-button-empty:hover {
+  color: $deep-blue;
+  opacity: 0.8;
   transition: 0.2s;
 }
 
 .devise-links {
   color: $deep-blue;
   margin-top: 20px;
+}
+
+.nav-link-button-empty {
+  background: $light-gray;
+  padding: 5px 15px;
+  border-radius: 1px;
+  border: 1px solid $deep-blue;
+  color: $deep-blue;
+  font-size: 1rem;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.nav-link-button-filled {
+  background: $deep-blue;
+  border: 1px solid $deep-blue;
+  padding: 5px 15px;
+  border-radius: 1px;
+  color: $light-gray;
+  font-size: 1rem;
+  width: 100%;
 }

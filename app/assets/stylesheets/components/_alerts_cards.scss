@@ -18,7 +18,7 @@
 }
 
 .alert-card {
-  border: 1px solid $clear-blue;
+  border: 1px solid $light-blue;
   border-radius: 2px;
   padding: 10px 20px 20px 20px;
   justify-content: space-between;
@@ -62,19 +62,19 @@
 
 .alert-card-edit-button:hover,
 .alert-card-delete-button:hover {
-  border-radius: 4px;
+  opacity: 0.8;
   transition: 0.2s;
 }
 
 
 .new-alert-icon {
   font-size: 2rem;
-  color: $clear-blue;
+  color: $light-blue;
 }
 
 .new-alert-card-title {
   font-size: 2rem;
   font-weight: 200;
-  color: $clear-blue;
+  color: $light-blue;
   margin-bottom: 0px;
 }
