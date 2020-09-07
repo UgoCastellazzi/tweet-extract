@@ -19,9 +19,17 @@
   width: 100%;
 }
 
+
+.nav-link-button-filled:hover,
 .primary-button:hover {
   color: $light-gray;
-  opacity: 0.95;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.nav-link-button-empty:hover {
+  color: $deep-blue;
+  opacity: 0.8;
   transition: 0.2s;
 }
 
