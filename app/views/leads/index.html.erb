@@ -3,7 +3,11 @@
     <div class="col">
       <div class="alerts-container">
         <h1>Leads for "<%= @alert.keyword %>"</h1>
-
+        <div>
+          <a href="leads.csv" class="export-button">Export all leads</a>
+          <a href="leads/update_tweets" class="refresh-button"> <i class="fas fa-sync-alt"></i> Refresh leads</a>
+        </div>
+        
         <div class="table-container">
           <div class="table-title">
             <h2 class="col-3">PROFILE</h2>
@@ -22,7 +26,7 @@
                     <div class="profile-details-container">
                       <p class="lead-handdle"> @<%= lead.handdle %> </p>
                       <p class="follow-info"> <%= lead.followers %> FOLLOWERS </p>
-                      <p class="follow-info"> <%= lead.followers %> FOLLOWING </p>
+                      <p class="follow-info"> <%= lead.following %> FOLLOWING </p>
                     </div>
                   </div>
                   <div class="description-container col-3">
@@ -42,9 +46,7 @@
                 </div>
               <% end %>
             </div>
-        </div>       
-
-        <%= link_to 'Update tweets', update_tweets_alert_leads_path %> 
+        </div>
       </div>
 
     </div>

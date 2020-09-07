@@ -4,6 +4,11 @@ class LeadsController < ApplicationController
   def index
     @alert = Alert.find(params[:alert_id])
     @leads = policy_scope(Lead).order(created_at: :desc).where(alert_id: @alert.id)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @leads.to_csv }
+    end
   end
 
   def destroy

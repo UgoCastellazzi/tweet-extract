@@ -1,12 +1,10 @@
-.back-button {
-  border-radius: 5px;
+.refresh-button {
+  border-radius: 2px;
   border: 1px solid $clear-blue;
   padding: 5px 15px;
-  font-size: 1.2rem;
-  font-weight: 200;
   color: $clear-blue;
 }
-.back-button:hover {
+.refresh-button:hover {
   color: $clear-blue;
 }
 
@@ -19,9 +17,18 @@
   width: 100%;
 }
 
+.primary-button-small {
+  background: $deep-blue;
+  padding: 5px 15px;
+  border-radius: 1px;
+  color: $light-gray;
+  font-size: 1rem;
+}
+
 
 .nav-link-button-filled:hover,
-.primary-button:hover {
+.primary-button:hover,
+.export-button:hover {
   color: $light-gray;
   opacity: 0.8;
   transition: 0.2s;
@@ -57,4 +64,13 @@
   color: $light-gray;
   font-size: 1rem;
   width: 100%;
+}
+
+.export-button {
+  background: $deep-blue;
+  border: 1px solid $deep-blue;
+  padding: 5px 15px;
+  border-radius: 1px;
+  color: $light-gray;
+  font-size: 1rem;
 }
