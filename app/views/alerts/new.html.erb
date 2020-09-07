@@ -1,9 +1,15 @@
-<%= simple_form_for (@alert) do |f| %>
-  <%= f.input :keyword %>
-  <%= f.input :exact_keyword %>
-  <%= f.input :keywords_excluded %>
-  <%= f.input :hashtags %>
-  <%= f.input :retweets_included %>
-  <%= f.input :follower_threshold %>
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= simple_form_for (@alert) do |f| %>
+        <%= f.input :keyword %>
+        <%= f.input :exact_keyword %>
+        <%= f.input :keywords_excluded %>
+        <%= f.input :hashtags %>
+        <%= f.input :retweets_included %>
+        <%= f.input :follower_threshold %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

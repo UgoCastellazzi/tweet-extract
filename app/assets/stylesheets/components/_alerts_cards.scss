@@ -19,13 +19,20 @@
 
 .alert-card {
   border: 1px solid $clear-blue;
-  border-radius: 5px;
-  padding: 10px 10px 20px 10px;
-  justify-content: center;
+  border-radius: 2px;
+  padding: 10px 20px 20px 20px;
+  justify-content: space-between;
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 100%;
+  a:hover {
+    color: white;
+  }
+}
+
+.first-alert {
+  padding-top: 30px;
 }
 
 .alert-card-details {
@@ -34,13 +41,13 @@
 
 .card-title {
   color: $deep-blue;
-  font-size: 36px;
+  font-size: 28px;
 }
 
 .alert-card-delete-button {
   background: $red;
   padding: 5px 15px;
-  border-radius: 2px;
+  border-radius: 1px;
   color: $light-gray;
   font-size: 1rem;
 }
@@ -48,10 +55,17 @@
 .alert-card-edit-button {
   background: $light-blue;
   padding: 5px 15px;
-  border-radius: 2px;
+  border-radius: 1px;
   color: $light-gray;
   font-size: 1rem;
 }
+
+.alert-card-edit-button:hover,
+.alert-card-delete-button:hover {
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
 
 .new-alert-icon {
   font-size: 2rem;
@@ -62,4 +76,5 @@
   font-size: 2rem;
   font-weight: 200;
   color: $clear-blue;
+  margin-bottom: 0px;
 }
