@@ -14,7 +14,7 @@
             <h2 class="col-3">DESCRIPTION</h2>
             <h2 class="col-4">TWEET</h2>
             <h2 class="col-1">DATE</h2>
-            <h2 class="col-1">ADD</h2>
+            <h2 class="col-1"></h2>
           </div>
             <div class="table">
               <% @leads.each do | lead |%>
@@ -41,7 +41,9 @@
                     <p> <%= lead.date %> </p>
                   </div>
                   <div class="add-container col-1">
-                    <%= link_to 'Delete', lead_path(lead), method: :delete %>
+                    <%= link_to lead_path(lead), method: :delete  do %>
+                      <i class="far fa-trash-alt"></i>
+                    <% end %>
                   </div>
                 </div>
               <% end %>
