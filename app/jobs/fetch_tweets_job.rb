@@ -10,8 +10,7 @@ class FetchTweetsJob < ApplicationJob
       config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
       config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
-    puts compute_search(alert)
-    client.search("#{compute_search(alert)}", result_type: "recent").take(10).collect do |tweet|
+    client.search("#{alert.compute_search}", result_type: "recent").take(10).collect do |tweet|
       if Lead.exists?(tweet_content: tweet.text)
         next
       else
@@ -31,43 +30,5 @@ class FetchTweetsJob < ApplicationJob
         end
       end
     end
-
   end
-
-  def keyword_creation(alert)
-    if alert.exact_keyword
-      '"' + "#{alert.keyword}" + '"'
-    else
-      "#{alert.keyword}"
-    end
-  end
-
-  def excluded_keywords_creation(alert)
-    result = ""
-    alert.array_from_keywords_excluded.each do | keyword |
-      result += "-#{keyword.strip} "
-    end
-    result.strip
-  end
-
-  def hashtags_creation(alert)
-    result = ""
-    alert.array_from_hashtags.each do | hashtag |
-      result += "#{hashtag.strip} "
-    end
-    result.strip
-  end
-
-  def retweets_creation(alert)
-    if alert.retweets_included
-      ""
-    else
-      "-rt -RT"
-    end
-  end
-
-  def compute_search(alert)
-    "#{keyword_creation(alert)} #{excluded_keywords_creation(alert)} #{hashtags_creation(alert)} #{retweets_creation(alert)}"
-  end
-
 end
