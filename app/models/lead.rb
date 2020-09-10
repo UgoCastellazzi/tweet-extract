@@ -10,6 +10,7 @@ class Lead < ApplicationRecord
         csv << lead.attributes.values_at(*attributes)
       end
     end
+
   end
 
 end
