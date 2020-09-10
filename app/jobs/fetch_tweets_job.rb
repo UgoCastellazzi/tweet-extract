@@ -10,7 +10,7 @@ class FetchTweetsJob < ApplicationJob
       config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
       config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
-    client.search("#{alert.compute_search}", result_type: "recent").take(10).collect do |tweet|
+    client.search("#{alert.compute_search}", result_type: "recent").take(50).collect do |tweet|
       if Lead.exists?(tweet_content: tweet.text)
         next
       else
