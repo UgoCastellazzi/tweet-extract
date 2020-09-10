@@ -7,7 +7,7 @@ class LeadsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @leads.to_csv, filename: "leads-#{@alert.keyword}-#{Date.today}" }
+      format.csv { send_data @leads.to_csv, filename: "leads-#{@alert.keyword}-#{Date.today}.csv" }
     end
   end
 
