@@ -36,6 +36,7 @@ gem 'faker'
 gem 'twitter'
 
 gem 'pundit'
+gem 'rails_admin', '~> 2.0'
 
 group :development, :test do
   gem 'pry-byebug'
