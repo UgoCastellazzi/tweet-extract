@@ -1,45 +1,33 @@
-<% if @user.invited == true %>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="alerts-container">
-          <h1><%= @user.email %>, here are your alerts</h1>
-            <div class="alert-card-container">
-              <% if policy(Alert).create? %>
-                <%= link_to new_alert_path(alert) do %>
-                  <div class="first-alert alert-card">
-                    <i class="fas fa-plus new-alert-icon"></i>
-                    <p class="new-alert-card-title">Create a new alert</p>
-                  </div>
-                <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="alerts-container">
+        <h1><%= @user.email %>, here are your alerts</h1>
+          <div class="alert-card-container">
+            <% if policy(Alert).create? %>
+              <%= link_to new_alert_path(alert) do %>
+                <div class="first-alert alert-card">
+                  <i class="fas fa-plus new-alert-icon"></i>
+                  <p class="new-alert-card-title">Create a new alert</p>
+                </div>
               <% end %>
-              <% @alerts.each do | alert |%>
-              <div class="alert-card">
-                <div class="alert-card-details">
-                    <%= link_to alert_leads_path(alert) do %>
-                      <p class="card-title"><%= alert.keyword %></p>
-                      <p><%= alert.leads.count %> leads</p>
-                    <% end %>
+            <% end %>
+            <% @alerts.each do | alert |%>
+            <div class="alert-card">
+              <div class="alert-card-details">
+                  <%= link_to alert_leads_path(alert) do %>
+                    <p class="card-title"><%= alert.keyword %></p>
+                    <p><%= alert.leads.count %> leads</p>
+                  <% end %>
+              </div>
+                <div class="alert-card-buttons">
+                  <%= link_to 'Edit', edit_alert_path(alert), class: "alert-card-edit-button" %> 
+                  <%= link_to 'Delete', alert_path(alert), method: :delete, class: "alert-card-delete-button" %>
                 </div>
-                  <div class="alert-card-buttons">
-                    <%= link_to 'Edit', edit_alert_path(alert), class: "alert-card-edit-button" %> 
-                    <%= link_to 'Delete', alert_path(alert), method: :delete, class: "alert-card-delete-button" %>
-                  </div>
-                </div>
-              <% end %>  
-            </div>
-        </div>
+              </div>
+            <% end %>  
+          </div>
       </div>
     </div>
   </div>
-<% else %>
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col">
-        <div class="alerts-container">
-          <h1>Let me come back to you :)</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+</div>
