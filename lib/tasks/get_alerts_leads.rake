@@ -8,7 +8,7 @@ def get_leads(alert)
     config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
   end
   client.search("#{alert.compute_search}", result_type: "recent").take(50).collect do |tweet|
-    if Lead.exists?(tweet_content: tweet.text)
+    if Lead.exists?(tweet_id: tweet.id)
       next
     else
       if alert.follower_threshold.nil? || tweet.user.followers_count > alert.follower_threshold
